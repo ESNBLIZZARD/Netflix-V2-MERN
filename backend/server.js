@@ -24,6 +24,10 @@ app.use("/api/v1/movie", protectRoute, movieRoutes);
 app.use("/api/v1/tv", protectRoute, tvRoutes);
 app.use("/api/v1/search", protectRoute, searchRoutes);
 
+app.get("/", (req, res) => {
+  res.json({ message: "API is running..." });
+});
+
 if (ENV_VARS.NODE_ENV === "production") {
   // Use correct relative path to frontend dist
   const frontendDistPath = path.join(__dirname, "../frontend/dist");
